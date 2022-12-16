@@ -1,0 +1,14 @@
+<%= link_to '<< Movie Collection', movies_path, style: "margin-left: -246px;" %>
+
+<h1> Happy users:</h1>
+<% @users.each do |u| %>
+    <section class="user">
+        <div class="summary">
+            <ul>
+                <li><b> <%= link_to u.name.capitalize, user_path(u) %></b> </li>
+
+            </ul>
+        </div>
+    </section>
+<% end %>
+

@@ -1,0 +1,16 @@
+<header>
+    <%= image_tag 'logo' %>
+    <% if current_user.present? %>
+        <div style= "color: whitesmoke;">Welcome <%= current_user.user_name.capitalize %>!</div>
+        <%= link_to 'Movies', movies_path, style: "color: whitesmoke;" %> |
+        <%= link_to 'My Profile', user_path(current_user), style: "color: whitesmoke;"  %> |
+        <%= link_to 'Account Settings', edit_user_path(current_user), style: "color: whitesmoke;" %> |
+        <%= link_to 'SignOut', sign_out_path(current_user), style: "color: whitesmoke;" %>
+        
+    <% end %>   
+     
+     <% if !current_user %>
+        <h6><%= link_to 'SignUp!', sign_up_path, style: "color: whitesmoke;" %> | <%= link_to 'Sign In', sign_in_path, style: "color: whitesmoke;" %> | <%= link_to 'Users', users_path, style: "color: whitesmoke;" %></h6>
+    <% end %>
+    
+</header>

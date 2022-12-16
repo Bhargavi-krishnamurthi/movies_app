@@ -1,0 +1,35 @@
+  <div>
+    <h2><u>Movie Collection:</u></h2> 
+    <%= link_to 'Awaiting for Release', filtered_movies_path("upcoming") %> | 
+    <%= link_to 'Recent Release', filtered_movies_path("recent") %>
+    <div class= "align_right" style = "margin-left: 736px;">
+      <% if current_user_admin? %>
+        <%= link_to '+Add Movie to Collection', new_movie_path %>      
+      <% end %>
+  </div>
+  </div>
+  <br>
+  <ol>
+    <% @movies.each do |movie|%>
+      <section class="movie">
+        <div class="summary">
+          <h2>
+            <li><b> <%= link_to movie.title.capitalize, movie_path(movie) %></b> (<%= movie.rating%>)...</li>
+          </h2>	
+          <h3>
+            <%= success_state(movie) %>
+          </h3>
+          <p>
+            <%= truncate(movie.description, length: 150, separator: ' ') %>
+          </p>
+          <h6>Poster:</h6>
+            <%= movie_poster(movie, "index") %>
+          <p>
+            <b>Average Rating:</b> <%= average_rating(movie) %>
+          </p>
+        </div>
+      </section>
+    <% end %>
+  </ol>
+  
+    

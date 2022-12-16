@@ -1,0 +1,13 @@
+<%= form_with url: sessions_create_path do |f| %>
+
+  <%= f.label :Email %>
+  <%=  f.email_field :email %>
+
+  <%= f.label :Password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Sign In" %> 
+  
+<% end %>
+
+<center><%= link_to 'Dont have an account? SignUp!!', sign_up_path %></center>

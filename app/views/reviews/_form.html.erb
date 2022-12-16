@@ -1,0 +1,13 @@
+<h1>Write a Review</h1>
+<%= render 'shared/errors', object: review %>
+<%= form_with(model: [@movie,review]) do |f|%>
+   
+    <%= f.label :comment %>
+    <%=  f.text_area :comment, rows: 4 %>
+
+    <%= f.label :Rating %>
+    <%= f.collection_radio_buttons :stars, Review::RATINGS, :first, :last %>
+   
+    <%= f.submit %>
+
+<% end %>

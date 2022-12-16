@@ -1,0 +1,23 @@
+<h1>Fill The Details:</h1>
+<%= render 'shared/errors', object: user %>
+<%= form_with(model: user, local:true) do |f|%>
+    
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :Email %>
+    <%=  f.email_field :email %>
+
+    <%= f.label :UserName %>
+    <%= f.text_field :user_name %>
+
+    <%= f.label :Password %>
+    <%= f.password_field :password %>
+
+    <%= f.label :PasswordConfirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <% action = submit_wording(user) %>
+    <%= f.submit action %>
+
+<% end %>

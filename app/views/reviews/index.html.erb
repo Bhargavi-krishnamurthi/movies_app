@@ -1,0 +1,13 @@
+<h2>Reviews For <%= link_to @movie.title, @movie %> </h2><br>
+<% if @reviews.present? %>
+    <ul>
+        <% @reviews.each do |review| %>
+            <li><p><b><h5><%= review.user.name.capitalize %>  <%= calculate_stars(review) %> </h5></b></p></li>
+            <p><%= review.comment %></p>
+            <%= link_to '✍️', edit_movie_review_path(@movie, review) %> | <%= link_to '🗑️', movie_review_path(@movie, review), method: :delete, data: {confirm: "Are you sure you want to delete review for the movie?"} %>
+            <hr>
+        <% end %>
+    </ul>
+<% else %>
+    <h4>No Reviews YET..</h4>
+<% end %>
