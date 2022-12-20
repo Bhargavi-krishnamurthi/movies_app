@@ -1,5 +1,5 @@
 <header>
-    <%= image_tag 'logo' %>
+    <%= image_tag 'logo.png' %>
     <% if current_user.present? %>
         <div style= "color: whitesmoke;">Welcome <%= current_user.user_name.capitalize %>!</div>
         <%= link_to 'Movies', movies_path, style: "color: whitesmoke;" %> |

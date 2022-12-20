@@ -17,7 +17,7 @@ module MoviesHelper
 				image_tag movie.poster.variant(resize_to_limit: [200,200])
 			end
 		else
-			image_tag 'placeholder'
+			image_tag 'placeholder.png'
 		end
 	end
 
